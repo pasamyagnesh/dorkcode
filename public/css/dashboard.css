@@ -1,0 +1,285 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+/* General Styling */
+body {
+    background-color: #0d1117;
+    font-family: "Sora", sans-serif;
+    color: #747777;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+h1 {
+    font-size: 80px;
+    text-align: center;
+    color: #e1e1df;
+    margin-top: 2vh;
+    transform: translateY(-50%);
+}
+
+/* Table Styles */
+table {
+    font-family: "Sora", sans-serif;
+    background-color: #0d1117;
+
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+    border: 10px solid white; /* Increased border to 25px */
+    margin-top: 20px;
+}
+
+th,
+td {
+    font-size: 18px;
+    height: 5px;
+    border: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 10px solid #20222252;
+    color: #939393; /* Adjusted border */
+}
+
+th {
+    font-weight: 400;
+    background-color: #16181ca9;
+    color: #e1e1df;
+    font-size: 20px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 14px auto; /* Adjusted to fit screen */
+    max-width: 90%; /* Adjusted to fit screen */
+    padding: 20px 10px; /* Reduced inner padding */
+    background-color: #16181c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 0.1px solid #333333;
+    border-radius: 8px;
+    text-align: center; /* Center the form content */
+}
+form input{
+    color: #e6e6e6;
+
+}
+form input[type="text"] {
+    font-family: "Sora", sans-serif;
+    color: #e6e6e6;
+    width: 30%; /* 30% of the entire form container */
+    padding: 12px 10px; /* Reduced horizontal padding */
+    margin-bottom: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    height: 40px;
+    background-color: #16181c;
+    border: 0.1px solid #e6e6e64f; /* Changed border color */
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+
+form button {
+    font-family: "Sora", sans-serif;
+    font-weight: 300;
+    width: 10%; /* 10% of the entire form container */
+    padding: 8px 20px; /* Adjusted padding */
+    font-size: 20px;
+    background-color: #8791c1;
+    border-color: #3d4259; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: 2px solid #3d4259;
+
+}
+
+form .input-group {
+    display: flex;
+    align-items: center;
+}
+
+form .input-group label {
+    margin-right: 10px; /* Reduced right margin to 10px */
+}
+
+form button:hover {
+    transition: background-color 0.3s; /* Add transition effect for background color */
+
+    border: 2px solid #3d4259;
+    border-color: #3d4259; 
+
+
+}
+
+
+
+/* Rating Styles */
+.rating {
+    display: flex;
+    justify-content: center;
+    margin: 18px auto; /* Center the rating container and adjust top/bottom margin */
+    padding: 10px;
+    background-color:#0d1117;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.rating button {
+    font-family: "Sora", sans-serif;
+    background-color: #333333;
+    color: #e3e3e3;
+    width: 6%;
+    height: 40px;
+    border: 1px solid #3d3d3b;
+    padding: 0; /* Remove padding */
+    margin: 0 5px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 18px;
+    outline: none;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.rating button:hover {
+    transform: scale(1.1);
+    border: 2px solid #00879c;
+    color: #ffffff;
+    background-color: #005f6d68;
+}
+
+
+.rating button:active {
+    border-color: #008da2;
+}
+
+.rating button.selected {
+    background-color: #06c2de68;
+    border-color: #1faabe;
+    color: #ffffff;
+}
+
+
+/* Navigation Styles */
+/* Navigation Styles */
+nav {
+    background-color: #010409;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    color: #e1e1df;
+    position: relative; /* Make the navigation a positioned element */
+}
+
+nav a {
+    font-size: 16px;
+    color: #c2c4c5;``````````````````````````````````
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative; /* Make the anchor tag a positioned element */
+}
+
+nav a::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Position the pseudo-element */
+    bottom: -3px; /* Adjust the distance of the bar from the text */
+    left: 50%; /* Position the bar in the center of the text */
+    transform: translateX(-50%); /* Center the bar horizontally */
+    width: 01`; /* Initially set width to 0 */
+    height: 2px; /* Height of the bar */
+    background-color: #ffffff; /* Color of the bar */
+    transition: width 0.25s ease-in-out; /* Add transition for smooth effect */
+    cursor: pointer; /* Add pointer cursor on hover below the text */
+}
+
+nav a:hover::after {
+    width: 80%; /* Increase the width of the bar on hover */
+}
+
+nav a:hover {
+    border-radius: 15px;
+    background-color: #171b20;
+    color: #ffffff;
+    transition: all 0.3s;
+}
+nav #theme-toggle i.far{
+    background-color: None;
+
+
+}
+#theme-toggle i.far {
+    transition: color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease; /* Apply transition for smooth color, rotation, and shadow change */
+}
+
+/* Change rotation, color, and shadow when hovered */
+#theme-toggle:hover i.far {
+    border: 1px solid #3d4259;
+    color: #c291e2; /* Change color on hover */
+    transform: rotate(30deg); /* Apply rotation on hover */
+    transition: color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease; /* Apply transition for smooth color, rotation, and shadow change */
+}
+
+
+
+
+.left-links {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Increase left margin */
+}
+
+.left-links i,
+.left-links .logo {
+    font-size: 30px; /* Increase icon and logo size */
+    margin-right: 10px; /* Adjust margin between icon and logo */
+}
+.left-links .logo {
+    font-weight: 600;
+}
+.center-links {
+    flex-grow: 1; /* Grow to fill the available space */
+    display: flex;
+    justify-content: center; /* Align items horizontally */
+}
+
+.right-links {
+    display: flex;
+    align-items: center;
+}
+
+.right-links a {
+    margin-left: 10px; /* Adjust margin between logout link and username */
+}
+
+
+
+
+
+.default-data {
+    text-align: center; /* Center the content */
+    padding: 100px 50px; /* Add padding of 50px from both ends */
+}
+
+.default-data i {
+    font-size: 60px; /* Increase the size of the icon to 80px */
+    margin-bottom: 10px; /* Add space between the icon and paragraph */
+}
+
+.default-data p {
+    font-size: 24px; /* Keep the paragraph font size */
+    margin-bottom: 10px; /* Add space between paragraphs */
+}
+
+
+
