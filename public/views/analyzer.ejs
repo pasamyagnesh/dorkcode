@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Your head content here -->
+    <script src="https://kit.fontawesome.com/8045a273a1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+    <title>analyse</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        .container {
+            border: 3px solid #202222b2;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        table {
+            border-radius: 10px;
+            background-color: #0d1117;
+            border: 3px solid #202222b2;
+            width: 600px;
+            padding: 10px;
+        }
+
+        table td {
+            color: #e3ebf1;
+        }
+
+        th,
+        td {
+            border-radius: 10px;
+            border: 3px solid #202222b2;
+            padding: 7px;
+            font-size: 15px;
+        }
+
+        td {
+            height: 10px;
+        }
+
+        table img {
+            height: 100px;
+            width: 100px;
+        }
+
+        /* Style for the form */
+        form {
+            display: flex;
+            align-items: center;
+            width: 700px;
+        }
+
+        /* Style for the input box */
+        input[type="text"] {
+            width: 40%;
+            padding: 20px;
+            margin-right: 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+
+        .download-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #010409;;
+            color: #e3ebf1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border-color: #9e9e9e;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .left,
+        .right {
+            flex: 1;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+        }
+
+        /* Style for the submit button */
+        button[type="submit"] {
+            width: 20%;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #1fb8cd;
+            color: #1a2e31;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navi">
+        <nav style="background-color: #010409;">
+            <div class="left-links">
+                <i class="fa-brands fa-squarespace"
+                    style="background: linear-gradient(to right, #7500aa, #2b86c5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                <div class="logo"
+                    style="background: linear-gradient(to right, #7500aa, #2b86c5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    Dork</div>
+            </div>
+            <div class="center-links">
+                <a href="/">Analyze</a>
+                <a href="/analyzer" style="background-color:#171b20;color: #ffffff;border-radius: 15px;">Analyze</a>
+            </div>
+            <div class="right-links">
+                <!-- Replace the sun logo with the moon logo -->
+                <a  rel="noopener noreferrer"><i class="fa-solid fa-user"></i> <%= uname %><i class="fa-solid fa-angle-down"></i></a>
+
+
+                <a href="#" id="theme-toggle" onclick="toggleTheme()"><i class="far fa-sun"></i></a>
+             
+            </div>
+      
+            </div>
+        </nav>
+    </div>
+    <form action="/analyzer" method="post" style="display: flex; align-items: center;">
+        <input type="text" id="codeforcesHandle" placeholder="Enter Codeforces handle" name="codeforcesHandle" required>
+        <button type="submit"><i class="fa-solid fa-chart-simple"></i> Check</button>
+    </form>
+    
+    <div class="container">
+        <div class="left" id="user-card">
+            <div class="user-details">
+                <%
+                    try {
+                        function calculateTimeDifference(timeSeconds) {
+                            const currentTime = Math.floor(Date.now() / 1000);
+                            const differenceInSeconds = currentTime - timeSeconds;
+        
+                            const years = Math.floor(differenceInSeconds / (365 * 24 * 60 * 60));
+                            const months = Math.floor((differenceInSeconds % (365 * 24 * 60 * 60)) / (30 * 24 * 60 * 60));
+                            const days = Math.floor((differenceInSeconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
+                            const hours = Math.floor((differenceInSeconds % (24 * 60 * 60)) / (60 * 60));
+        
+                            let result = '';
+        
+                            if (years > 0) {
+                                result += `${years} years `;
+                            }
+        
+                            if (months > 0) {
+                                result += `${months} months `;
+                            }
+        
+                            if (days > 0) {
+                                result += `${days} days `;
+                            }
+        
+                            if (hours > 0) {
+                                result += `${hours} hours`;
+                            }
+        
+                            return result.trim() || 'Less than an hour ago';
+                        }
+        
+                        if (locals.user) { %>
+        
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Image</td>
+                            <td><img src="<%= locals.user.avatar %>" alt="Avatar" id="user-avatar" style="max-width: 100%;"></td>
+                        </tr>
+                        <tr>
+                            <td>Codeforces Handle:</td>
+                            <td><%= locals.user.handle %></td>
+                        </tr>
+                        <tr>
+                            <td>Rating:</td>
+                            <td><%= locals.user.rating %> (Max: <%= locals.user.maxRating %>)</td>
+                        </tr>
+                        <tr>
+                            <td>Rank:</td>
+                            <td><%= locals.user.rank %> (Max: <%= locals.user.maxRank %>)</td>
+                        </tr>
+                        <tr>
+                            <td>Name:</td>
+                            <td><%= locals.user.firstName %> <%= locals.user.lastName %></td>
+                        </tr>
+                        <tr>
+                            <td>City & Country</td>
+                            <td><%= locals.user.country %>, <%= locals.user.city %></td>
+                        </tr>
+                        <tr>
+                            <td>Registration Time:</td>
+                            <td><%= calculateTimeDifference(locals.user.registrationTimeSeconds) %></td>
+                        </tr>
+                        <tr>
+                            <td>Last Online Time:</td>
+                            <td><%= calculateTimeDifference(locals.user.lastOnlineTimeSeconds) %></td>
+                        </tr>
+                        <tr>
+                            <td>Organization:</td>
+                            <td><%= locals.user.organization %></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <% } else { %>
+                <div class="default-data-container">
+                    <div class="default-data">
+                        <i class="fa-brands fa-buffer"></i>
+                        <p>No data available / Error fetching user details </p>
+                        <p>Enter a valid Codeforces id</p>
+                    </div>
+                </div>
+                <% }
+                    } catch (error) { %>
+                <div class="default-data-container">
+                    <div class="default-data">
+                        <i class="fa-brands fa-buffer"></i>
+                        <p>Error fetching user details. Please try again.</p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <button class="download-btn" id="downloadBtn"><i class="fa-solid fa-download"></i> Download </button>
+        <div class="right">
+            <canvas id="myChart" style="width:100%;max-width:600px;height: 480px; margin:auto; display:block;"></canvas>
+        </div>
+    </div>
+    <script>
+        console.log('html2canvas loaded:', html2canvas);
+
+        const xValues = <%= JSON.stringify(locals.originalTimeFramesList) %>;
+        const yValues = <%= JSON.stringify(locals.newRatings) %>;
+
+        const chartData = {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: 'Performance',
+                    fill: true,
+                    lineTension: 1,
+                    backgroundColor: '#063b0a',
+                    borderColor: "#57f757",
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: {
+                    display: true
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Rating Range'
+                        },
+                        ticks: {
+                            min: Math.min(...yValues),
+                            max: Math.max(...yValues)
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Contest Participation in Unix timestamps'
+                        }
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: 'Users Scatterplot'
+                }
+            }
+        };
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, chartData);
+
+        document.getElementById('user-avatar').onload = function () {
+            document.getElementById('downloadBtn').addEventListener('click', function () {
+                html2canvas(document.getElementById('user-card')).then(function (canvas) {
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = 'user-card.png';
+                    link.click();
+                }).catch(function (error) {
+                    console.error('Error capturing canvas:', error);
+                });
+            });
+        };
+    </script>
+</body>
+
+</html>
+

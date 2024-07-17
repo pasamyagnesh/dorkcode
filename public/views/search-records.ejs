@@ -1,0 +1,30 @@
+<!-- search-records.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Records</title>
+</head>
+<body>
+    <h1>Search Records</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CF ID</th>
+                <th>Topic</th>
+                <th>IP Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% searchRecords.forEach(record => { %>
+                <tr>
+                    <td><%= record.id %></td>
+                    <td><%= record.cf_id %></td>
+                    <td><%= record.topic %></td>
+                    <td><%= record.ip_address %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

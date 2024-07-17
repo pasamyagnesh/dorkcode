@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Your head content here -->
+    <script src="https://kit.fontawesome.com/8045a273a1.js" crossorigin="anonymous"></script>
+    <title>dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4K8JHQ5R24"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4K8JHQ5R24');
+    </script>
+
+    <link id="theme-style" rel="stylesheet" type="text/css" href="/css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+<style>
+   tr {
+    transition: background-color 0.3s; /* Add transition effect for background color */
+}
+
+tr:hover {
+    background-color: #2b2f3695; /* Change background color on hover */
+    color: #c1c1c1; /* Adjusted border */
+}
+
+</style>
+</head>
+
+<body>
+    <div class="navi">
+        <nav style="">
+            <div class="left-links">
+                <i class="fa-brands fa-squarespace" style="background: linear-gradient(to right, #7500aa, #2b86c5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                <div class="logo" style="background: linear-gradient(to right, #7500aa, #2b86c5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dork</div>
+            </div>
+            <div class="center-links">
+
+                <a href="/" style="background-color:#171b20;color: #ffffff;border-radius: 15px;">Practice</a>
+               
+
+            </div>
+            <div class="right-links">
+                <!-- Display the visitor count instead of the username -->
+                <a rel="noopener noreferrer"><i class="fa-solid fa-chart-line"></i>  <%= visitorCount %>   </a>
+        
+            </div>
+        </nav>
+    </div>
+
+    <form action="/" method="get">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 5px auto; max-width: 90%; padding: 2px; background-color: #16181c; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border: 0.1px solid #ffffff00; border-radius: 8px; text-align: center;">
+            <input type="text" id="handle" placeholder="Enter Codeforces id" name="handle" value="<%= locals.handle || '' %>" required style="font-family: 'Sora', sans-serif; color: #e6e6e6; width: 40%; padding: 12px 20px; margin-right: 20px; box-sizing: border-box; height: 40px; background-color: #16181c; border: 0.1px solid #e6e6e67b; border-radius: 8px; font-size: 15px;">
+            <input type="text" id="tags" placeholder="Enter problem tag" name="tags" value="<%= locals.tags || '' %>" required style="font-family: 'Sora', sans-serif; color: #e6e6e6; width: 40%; padding: 12px 20px; margin-right:20px; box-sizing: border-box; height: 40px; background-color: #16181c; border: 0.1px solid #e6e6e67b; border-radius: 8px; font-size: 15px;">
+            <button type="submit" style="font-family: 'Sora', sans-serif; font-weight: 300; width: 10%; padding: 8px 20px; font-size: 20px; background-color: #8957e5; color: #1a2e31;  border-radius: 5px; cursor: pointer; height: 40px; font-weight: 500;"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </form>
+
+    <nav class="rating">
+        <!-- Add event listeners to the rating buttons -->
+        <button type="button" class="rating-button" value="800" onclick="logRating(800)">Easy</button>
+        <button type="button" class="rating-button" value="900" style="width: 9%;" onclick="logRating(900)">Medium</button>
+        <button type="button" class="rating-button" value="1000" onclick="logRating(1000)">Hard</button>
+      
+    </nav>
+    <div class="default-data-container" style="display: flex; justify-content: center; background-color:None; margin-top: 5px;">
+        <div class="card-user" style="background-color: #06101dd9; border:2px solid #003681c0; border-radius: 10px; padding: 2px 30px; color: rgb(193, 193, 193); margin: 0 5px; font-weight: 500; font-size: 15px"> <!-- Increased font size by 15px -->
+            <% if (locals.topic_name) { %>
+                <p class="topic_name_right"><i class="fa-regular fa-user"></i>  <%= locals.handle %></p>
+            <% } %>
+        </div>
+        <div class="card-user" style="font-weight: 500; background-color: #06101dd9; border: 2px solid #003681c0; border-radius: 10px; padding: 2px 30px; color: rgb(193, 193, 193); margin: 0 5px; font-weight: 600; font-size: 15px"> <!-- Increased font size by 15px -->
+            <div style="text-align: center;">
+                <% if (typeof totalSolvedProblems !== 'undefined') { %>
+                    <p>Solved :  <%= totalSolvedProblems %></p> 
+                <% } %>
+            </div>
+
+        </div>
+
+        <% if (locals.user && locals.user.rank) { %> <!-- Added a check for locals.user -->
+            <% var rank = locals.user.rank.toLowerCase(); %>
+            <% var backgroundColor = ''; %>
+            <% var borderColor = ''; %>
+        
+            <% switch (rank) {
+                case 'legendary grandmaster':
+                case 'international grandmaster':
+                case 'grandmaster':
+                    backgroundColor = '#4c0000';
+                    borderColor = '#800000';
+                    break;
+                case 'international master':
+                case 'master':
+                    backgroundColor = '#d25800aa';
+                    borderColor = '#ff7d00';
+                    break;
+                case 'candidate master':
+                    backgroundColor = '#1e002a';
+                    borderColor = '#4a006a';
+                    break;
+                case 'expert':
+                    backgroundColor = '#001b39';
+                    borderColor = '#001c56';
+                    break;
+                case 'specialist':
+                    backgroundColor = '#003838';
+                    borderColor = '#006161';
+
+                    break;
+                case 'pupil':
+                    backgroundColor = 'rgb(7,33,15)';
+                    borderColor = '#208c23';
+
+                    break;
+                default:
+                    // Default color if rank is not matched
+                    backgroundColor = '#06101dd9';
+                    borderColor = '#003681c0';
+                    break;
+            } %>
+            <div class="card-user" style="background-color: <%= backgroundColor %>; border: 2px solid <%= borderColor || backgroundColor %>; font-weight: 500; border-radius: 10px; padding: 2px 30px; color: rgb(193, 193, 193); margin: 0 5px; font-size: 15px"> <!-- Increased font size by 15px -->
+                <div style="text-align: center;">
+                    <p><i class="fa-solid fa-bolt"></i> <%=" " %>   <%= locals.user.rank %></p>
+                </div>
+            </div>
+        <% } %>
+        
+    </div>
+        
+    
+    
+    
+    
+    
+    
+    <div class="default-data-container" style="text-align: center;">
+        <% if (typeof error !== 'undefined' && error !== null) { %>
+        <div class="default-data">
+            <i class="fa-brands fa-codepen"></i>
+            <p>" <%= error %> "</p>
+            <p>Enter your valid credentials</p>
+        </div>
+        <% } else if (problems && problems.length > 0) { %>
+      
+
+            <table>
+                <thead>
+                    <!-- Add the line above the table -->
+                    <!-- Table header -->
+                    <tr>
+                        <th>S.No</th>
+                        <th>Problem Name</th>
+                        <th>Tags</th>
+                        <th>Rating</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <!-- Table body -->
+                <% problems
+                    .filter(problem => problem.rating !== undefined && problem.rating !== null)
+                    .sort((a, b) => (a.rating || Infinity) - (b.rating || Infinity))
+                    .slice(0, 400) // Display only the first 30 problems
+                    .forEach((problem, index) => { %>
+                <tr>
+<%
+    let tagColor, ratingColor, statusColor;
+
+    if (locals.uniqueAcceptedProblems.includes(problem.name)) {
+        tagColor = '#83ff83'; // Green for accepted
+        ratingColor = '#83ff83';
+        statusColor = '#83ff83';
+    } else if (locals.timeLimitExceededProblems.includes(problem.name)) {
+        tagColor = 'orange'; // Orange for Time Limit Exceeded
+        ratingColor = 'orange';
+        statusColor = 'orange';
+    } else if (locals.wrongAnswerProblems.includes(problem.name)) {
+        tagColor = '#b90e0a'; // Red for Wrong Answer
+        ratingColor = '#b90e0a';
+        statusColor = '#b90e0a';
+    } else {
+        tagColor = 'inherit'; // Default color
+        ratingColor = 'inherit';
+        statusColor = 'inherit';
+    }
+%>
+<tr onclick="window.open('<%= `https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}` %>','_blank');" style="cursor: pointer;">
+    <td><%= index + 1 %></td>
+    <td style="color: <%= statusColor %>;">
+        <span style=""><%= problem.name %></span>
+        <% if (locals.uniqueAcceptedProblems.includes(problem.name)) { %>
+        <i class="fas fa-check-circle" style="color: #83ff83;"></i><% /* Display checkmark for accepted */ %>
+        <% } %>
+    </td>
+    <td style="color: <%= tagColor %>;">
+        <%= problem.tags.join(', ') %>
+    </td>
+    <td style="color: <%= ratingColor %>;">
+        <%= problem.rating != null ? problem.rating : '-' %>
+    </td>
+    <td class="Status_bar" style="color: <%= statusColor %>;">
+        <% if (locals.uniqueAcceptedProblems.includes(problem.name)) { %>
+        Accepted<% /* Accepted */ %>
+        <% } else if (locals.timeLimitExceededProblems.includes(problem.name)) { %>
+        TLE<% /* Time Limit Exceeded */ %>
+        <% } else if (locals.wrongAnswerProblems.includes(problem.name)) { %>
+        WA<% /* Wrong Answer */ %>
+        <% } else { %>
+        -<% /* Default */ %>
+        <% } %>
+    </td>
+</tr>
+
+
+
+                <% }); %>
+            </tbody>
+            </table>
+            <% } else { %>
+            <div class="topic_name">
+                <% if (problems && problems.length === 0) { %>
+                <p class="topic_name_error">Query -> <%= locals.topic_name %> topic not found!</p>
+                <% } %>
+            </div>
+            <div class="default-data">
+                <i class="fa-solid fa-server"></i>
+                <p>No data available / Error fetching problems </p>
+                <p>Enter a valid topic</p>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+
+<script>
+    let selectedRating = null; // Variable to store the selected rating
+
+    const ratingButtons = document.querySelectorAll('.rating-button');
+
+    ratingButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Deselect all buttons
+            ratingButtons.forEach(btn => btn.classList.remove('selected'));
+
+            // Select the clicked button
+            button.classList.add('selected');
+
+            // Update the selected rating
+            selectedRating = parseInt(button.value);
+
+            // Call the logRating function
+            logRating();
+        });
+    });
+
+    function logRating() {
+        if (selectedRating !== null) {
+            // Make an AJAX request to log the rating on the server
+            fetch(`/log-rating?rating=${selectedRating}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(`Selected Rating: ${data.rating}`);
+
+                    // If you want to update the UI based on the server response, do it here
+                    // For example, you can add a class to the selected button
+                    ratingButtons.forEach(btn => {
+                        if (parseInt(btn.value) === selectedRating) {
+                            btn.classList.add('selected');
+                        }
+                    });
+                })
+                .catch(error => console.error('Error logging rating:', error));
+        } else {
+            console.log('No rating selected');
+        }
+    }
+    function toggleTheme() {
+    const themeStyle = document.getElementById('theme-style');
+    const themeToggle = document.getElementById('theme-toggle');
+    let currentTheme = localStorage.getItem('theme');
+
+    if (!currentTheme || currentTheme === 'dashboard') {
+        themeStyle.setAttribute('href', '/css/light.css');
+        themeToggle.innerHTML = '<i class="far fa-moon"></i>'; // Change sun to moon
+        localStorage.setItem('theme', 'light');
+    } else {
+        themeStyle.setAttribute('href', '/css/dashboard.css');
+        themeToggle.innerHTML = '<i class="far fa-sun"></i>'; // Change moon to sun
+        localStorage.setItem('theme', 'dashboard');
+    }
+}
+
+
+
+    // Check local storage for theme and apply it on page load
+    window.onload = function () {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+        toggleTheme();
+    }
+};
+
+
+</script>
+</html>
