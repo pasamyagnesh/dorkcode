@@ -1,6 +1,5 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
 /* General Styling */
 body {
     background-color: #0d1117;
@@ -23,11 +22,10 @@ h1 {
 table {
     font-family: "Sora", sans-serif;
     background-color: #0d1117;
-
     border-collapse: collapse;
     width: 90%;
     margin: 0 auto;
-    border: 10px solid white; /* Increased border to 25px */
+    border: 10px solid white;
     margin-top: 20px;
 }
 
@@ -39,7 +37,7 @@ td {
     padding: 10px;
     text-align: center;
     border: 10px solid #20222252;
-    color: #939393; /* Adjusted border */
+    color: #939393;
 }
 
 th {
@@ -54,43 +52,43 @@ form {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 14px auto; /* Adjusted to fit screen */
-    max-width: 90%; /* Adjusted to fit screen */
-    padding: 20px 10px; /* Reduced inner padding */
+    margin: 14px auto;
+    max-width: 90%;
+    padding: 20px 10px;
     background-color: #16181c;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 0.1px solid #333333;
     border-radius: 8px;
-    text-align: center; /* Center the form content */
+    text-align: center;
 }
-form input{
-    color: #e6e6e6;
 
+form input {
+    color: #e6e6e6;
 }
+
 form input[type="text"] {
     font-family: "Sora", sans-serif;
     color: #e6e6e6;
-    width: 30%; /* 30% of the entire form container */
-    padding: 12px 10px; /* Reduced horizontal padding */
+    width: 30%;
+    padding: 12px 10px;
     margin-bottom: 5px;
     margin-top: 5px;
     box-sizing: border-box;
     height: 40px;
     background-color: #16181c;
-    border: 0.1px solid #e6e6e64f; /* Changed border color */
+    border: 0.1px solid #e6e6e64f;
     border-radius: 8px;
     font-size: 15px;
 }
 
-
 form button {
     font-family: "Sora", sans-serif;
     font-weight: 300;
-    width: 10%; /* 10% of the entire form container */
-    padding: 8px 20px; /* Adjusted padding */
+    width: 10%;
+    padding: 8px 20px;
     font-size: 20px;
     background-color: #8791c1;
-    border-color: #3d4259; 
+    border-color: #3d4259;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -98,7 +96,6 @@ form button {
     margin-bottom: 5px;
     margin-top: 5px;
     border: 2px solid #3d4259;
-
 }
 
 form .input-group {
@@ -107,28 +104,23 @@ form .input-group {
 }
 
 form .input-group label {
-    margin-right: 10px; /* Reduced right margin to 10px */
+    margin-right: 10px;
 }
 
 form button:hover {
-    transition: background-color 0.3s; /* Add transition effect for background color */
-
+    transition: background-color 0.3s;
     border: 2px solid #3d4259;
-    border-color: #3d4259; 
-
-
+    border-color: #3d4259;
 }
-
-
 
 /* Rating Styles */
 .rating {
     display: flex;
     justify-content: center;
-    margin: 18px auto; /* Center the rating container and adjust top/bottom margin */
+    margin: 18px auto;
     padding: 10px;
-    background-color:#0d1117;
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    background-color: #0d1117;
+    overflow-x: auto;
 }
 
 .rating button {
@@ -138,16 +130,16 @@ form button:hover {
     width: 6%;
     height: 40px;
     border: 1px solid #3d3d3b;
-    padding: 0; /* Remove padding */
+    padding: 0;
     margin: 0 5px;
     transition: all 0.2s;
     cursor: pointer;
     border-radius: 10px;
     font-size: 18px;
     outline: none;
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .rating button:hover {
@@ -156,7 +148,6 @@ form button:hover {
     color: #ffffff;
     background-color: #005f6d68;
 }
-
 
 .rating button:active {
     border-color: #008da2;
@@ -168,8 +159,6 @@ form button:hover {
     color: #ffffff;
 }
 
-
-/* Navigation Styles */
 /* Navigation Styles */
 nav {
     background-color: #010409;
@@ -178,33 +167,33 @@ nav {
     align-items: center;
     padding: 15px 0;
     color: #e1e1df;
-    position: relative; /* Make the navigation a positioned element */
+    position: relative;
 }
 
 nav a {
     font-size: 16px;
-    color: #c2c4c5;``````````````````````````````````
+    color: #c2c4c5;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    position: relative; /* Make the anchor tag a positioned element */
+    position: relative;
 }
 
 nav a::after {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Position the pseudo-element */
-    bottom: -3px; /* Adjust the distance of the bar from the text */
-    left: 50%; /* Position the bar in the center of the text */
-    transform: translateX(-50%); /* Center the bar horizontally */
-    width: 01`; /* Initially set width to 0 */
-    height: 2px; /* Height of the bar */
-    background-color: #ffffff; /* Color of the bar */
-    transition: width 0.25s ease-in-out; /* Add transition for smooth effect */
-    cursor: pointer; /* Add pointer cursor on hover below the text */
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.25s ease-in-out;
+    cursor: pointer;
 }
 
 nav a:hover::after {
-    width: 80%; /* Increase the width of the bar on hover */
+    width: 80%;
 }
 
 nav a:hover {
@@ -213,44 +202,42 @@ nav a:hover {
     color: #ffffff;
     transition: all 0.3s;
 }
-nav #theme-toggle i.far{
-    background-color: None;
 
-
+nav #theme-toggle i.far {
+    background-color: none;
 }
+
 #theme-toggle i.far {
-    transition: color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease; /* Apply transition for smooth color, rotation, and shadow change */
+    transition: color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
 }
 
-/* Change rotation, color, and shadow when hovered */
 #theme-toggle:hover i.far {
     border: 1px solid #3d4259;
-    color: #c291e2; /* Change color on hover */
-    transform: rotate(30deg); /* Apply rotation on hover */
-    transition: color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease; /* Apply transition for smooth color, rotation, and shadow change */
+    color: #c291e2;
+    transform: rotate(30deg);
+    transition: color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
 }
-
-
-
 
 .left-links {
     display: flex;
     align-items: center;
-    margin-left: 20px; /* Increase left margin */
+    margin-left: 20px;
 }
 
 .left-links i,
 .left-links .logo {
-    font-size: 30px; /* Increase icon and logo size */
-    margin-right: 10px; /* Adjust margin between icon and logo */
+    font-size: 30px;
+    margin-right: 10px;
 }
+
 .left-links .logo {
     font-weight: 600;
 }
+
 .center-links {
-    flex-grow: 1; /* Grow to fill the available space */
+    flex-grow: 1;
     display: flex;
-    justify-content: center; /* Align items horizontally */
+    justify-content: center;
 }
 
 .right-links {
@@ -259,27 +246,155 @@ nav #theme-toggle i.far{
 }
 
 .right-links a {
-    margin-left: 10px; /* Adjust margin between logout link and username */
+    margin-left: 10px;
 }
 
-
-
-
-
 .default-data {
-    text-align: center; /* Center the content */
-    padding: 100px 50px; /* Add padding of 50px from both ends */
+    text-align: center;
+    padding: 100px 50px;
 }
 
 .default-data i {
-    font-size: 60px; /* Increase the size of the icon to 80px */
-    margin-bottom: 10px; /* Add space between the icon and paragraph */
+    font-size: 60px;
+    margin-bottom: 10px;
 }
 
 .default-data p {
-    font-size: 24px; /* Keep the paragraph font size */
-    margin-bottom: 10px; /* Add space between paragraphs */
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
+/* User Details Card */
+.card {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #16181c;
+}
 
+.card div {
+    text-align: center;
+    padding: 10px;
+    flex: 1;
+}
 
+/* Additional styles for responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    body {
+        font-size: 16px; /* Increase adjustment for smaller fonts */
+    }
+
+    tr {
+        font-size: 1rem; /* Increase adjustment for row font size */
+    }
+
+    /* Adjustments for the navigation bar */
+    nav {
+        height: 70px; /* Increase height of navigation bar */
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+    }
+
+    .left-links, .center-links, .right-links {
+        font-size: 1.2rem; /* Increase font size in navigation links */
+    }
+
+    .left-links i, .center-links a, .right-links a {
+        font-size: 1.5rem; /* Adjust icon and link sizes */
+    }
+
+    /* Adjust table styling */
+    table {
+        width: 100%;
+        font-size: 14px; /* Increase font size for smaller screens */
+    }
+
+    th, td {
+        font-size: 12px; /* Increase font size for table cells */
+        padding: 8px; /* Adjust padding for table cells */
+    }
+
+    /* Style table rows to be more readable on small screens */
+    table, th, td {
+        display: block; /* Make table elements block-level for easier manipulation */
+        width: 100%;
+    }
+
+    th {
+        /* Hide table headers on small screens */
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc; /* Add border to table rows */
+        margin-bottom: 10px; /* Add margin between rows */
+    }
+
+    td {
+        /* Add padding and position relative for table cells */
+        padding-left: 50%;
+        position: relative;
+    }
+
+    td::before {
+        /* Add content before each table cell */
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    /* Adjust rating button sizes */
+    .rating button {
+        width: 10%;
+        font-size: 1rem;
+    }
+}
+
+/* Other existing styles */
+.navi {
+    /* Additional styles for the navigation bar */
+}
+
+.rating {
+    /* Additional styles for the rating buttons */
+}
+
+/* Styles for default-data-container and card-user */
+.default-data-container {
+    display: flex;
+    justify-content: center;
+    background-color: none;
+    margin-top: 5px;
+}
+
+.card-user {
+    background-color: #06101dd9;
+    border: 2px solid #003681c0;
+    border-radius: 10px;
+    padding: 2px 30px;
+    color: rgb(193, 193, 193);
+    margin: 0 5px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* Styles for default-data */
+.default-data {
+    text-align: center;
+}
+
+.default-data i {
+    /* Styles for default-data icons */
+}
+
+.default-data p {
+    /* Styles for default-data paragraphs */
+}
