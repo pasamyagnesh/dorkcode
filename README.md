@@ -1,6 +1,6 @@
-# Coding Platform
+# Dork Applicatiopn
 
-Welcome to our **Coding Platform**! This project uses the [Codeforces API](https://github.com/pasamyagnesh/dorkcode.git) to allow users to solve problems in over 30 different data structures and algorithms concepts, including constructive algorithms, bit manipulation, sorting, strings, and more.
+Welcome to our **Dork Application**! This project uses the [Codeforces API](https://codeforces.com/apiHelp) to allow users to solve problems in over 30 different data structures and algorithms concepts, including constructive algorithms, bit manipulation, sorting, strings, and more.
 
 ## Technologies Used
 
@@ -10,6 +10,19 @@ Welcome to our **Coding Platform**! This project uses the [Codeforces API](https
 - **Database**: PostgreSQL
 - **Cloud Storage**: Supabase
 - **Hosting**: Vercel
+
+## Packages Used
+
+- **nodemailer**: For sending emails.
+- **express**: Web framework for Node.js.
+- **express-session**: Middleware for managing sessions.
+- **body-parser**: Middleware for parsing request bodies.
+- **bcrypt**: Library for hashing passwords.
+- **multer**: Middleware for handling file uploads.
+- **pg**: PostgreSQL client for Node.js.
+- **axios**: Promise-based HTTP client for making API requests.
+- **moment-timezone**: Library for working with dates and times in different timezones.
+- **request-ip**: Middleware for retrieving client IP addresses.
 
 ## Live Demo
 
