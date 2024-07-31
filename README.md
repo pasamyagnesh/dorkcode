@@ -11,9 +11,6 @@ Welcome to our **Dork Application**! This project uses the [Codeforces API](http
 - **Database**: PostgreSQL
 - **Cloud Storage**: Supabase
 - **Hosting**: Vercel
-# Node.js Project Documentation
-
-This document provides an overview of the Node.js packages used in the project and their purposes.
 
 ## Packages Used
 
