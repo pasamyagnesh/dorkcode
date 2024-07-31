@@ -2,7 +2,9 @@
 
 [Dork](D:/dork.png)
 Welcome to our **Dork Application**! This project uses the [Codeforces API](https://codeforces.com/apiHelp) to allow users to solve problems in over 30 different data structures and algorithms concepts, including constructive algorithms, bit manipulation, sorting, strings, and more.
+## Live Demo
 
+You can view the live application here: [Dork Application](https://dork-application.vercel.app/)
 ## Technologies Used
 
 - **Frontend**: JavaScript, CSS, EJS
