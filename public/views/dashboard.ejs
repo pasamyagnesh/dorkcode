@@ -18,17 +18,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
-<style>
-   tr {
-    transition: background-color 0.3s; /* Add transition effect for background color */
+ <style>
+        /* Additional styles for responsiveness */
+        @media screen and (max-width: 768px) {
+            /* Adjustments for smaller screens */
+            body {
+                font-size: 14px; /* Example adjustment for smaller fonts */
+            }
+            tr {
+                font-size: 0.8rem; /* Example adjustment for smaller row font size */
+            }
+        }
+        /* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    table {
+        width: 100%;
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    th,
+    td {
+        font-size: 12px; /* Adjust font size for table cells */
+        padding: 8px;
+    }
 }
 
-tr:hover {
-    background-color: #2b2f3695; /* Change background color on hover */
-    color: #c1c1c1; /* Adjusted border */
-}
-
-</style>
+    </style>
 </head>
 
 <body>
@@ -51,22 +66,65 @@ tr:hover {
             </div>
         </nav>
     </div>
-
+    <section class="topic-grid">
+        <div class="topic-item">dp</div>
+        <div class="topic-item">graphs</div>
+        <div class="topic-item">greedy</div>
+        <div class="topic-item">data structures</div>
+        <div class="topic-item">probabilities</div>
+        <div class="topic-item">brute force</div>
+        <div class="topic-item">math</div>
+        <div class="topic-item">binary search</div>
+        <div class="topic-item">dfs and similar</div>
+        <div class="topic-item">number theory</div>
+        <div class="topic-item">sorting</div>
+        <div class="topic-item">combinatorics</div>
+        <div class="topic-item">bitmasks</div>
+        <div class="topic-item">geometry</div>
+        <div class="topic-item">strings</div>
+        <div class="topic-item">hashing</div>
+        <div class="topic-item">matrices</div>
+        <div class="topic-item">divide and conquer</div>
+        <div class="topic-item">trees</div>
+        <div class="topic-item">implementation</div>
+        <div class="topic-item">two pointers</div>
+        <div class="topic-item">ternary search</div> <!-- New topic added -->
+        <div class="topic-item">flows</div> <!-- New topic added -->
+        <div class="topic-item">graph matchings</div> <!-- New topic added -->
+        <div class="topic-item">games</div> <!-- New topic added -->
+        <div class="topic-item">expression parsing</div> <!-- New topic added -->
+        <div class="topic-item">shortest paths</div> <!-- New topic added -->
+    </section>
+    
     <form action="/" method="get">
         <div style="display: flex; justify-content: space-between; align-items: center; margin: 5px auto; max-width: 90%; padding: 2px; background-color: #16181c; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border: 0.1px solid #ffffff00; border-radius: 8px; text-align: center;">
             <input type="text" id="handle" placeholder="Enter Codeforces id" name="handle" value="<%= locals.handle || '' %>" required style="font-family: 'Sora', sans-serif; color: #e6e6e6; width: 40%; padding: 12px 20px; margin-right: 20px; box-sizing: border-box; height: 40px; background-color: #16181c; border: 0.1px solid #e6e6e67b; border-radius: 8px; font-size: 15px;">
             <input type="text" id="tags" placeholder="Enter problem tag" name="tags" value="<%= locals.tags || '' %>" required style="font-family: 'Sora', sans-serif; color: #e6e6e6; width: 40%; padding: 12px 20px; margin-right:20px; box-sizing: border-box; height: 40px; background-color: #16181c; border: 0.1px solid #e6e6e67b; border-radius: 8px; font-size: 15px;">
+           <!-- <select id="rating" name="rating" style="font-family: 'Sora', sans-serif; color: #e6e6e6; width: 40%; padding: 12px 20px; margin-right:20px; box-sizing: border-box; height: 40px; background-color: #16181c; border: 0.1px solid #e6e6e67b; border-radius: 8px; font-size: 15px;">
+                <option value="800">800</option>
+                <option value="900">900</option>
+                <option value="1000">1000</option>
+                <option value="1100">1100</option>
+                <option value="1200">1200</option>
+                <option value="1300">1300</option>
+                <option value="1400">1400</option>
+                <option value="1500">1500</option>
+                <option value="1600">1600</option>
+                <option value="1700">1700</option>
+                <option value="1800">1800</option>
+                <option value="1900">1900</option>
+            </select>-->
             <button type="submit" style="font-family: 'Sora', sans-serif; font-weight: 300; width: 10%; padding: 8px 20px; font-size: 20px; background-color: #8957e5; color: #1a2e31;  border-radius: 5px; cursor: pointer; height: 40px; font-weight: 500;"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
         </div>
     </form>
 
-    <nav class="rating">
-        <!-- Add event listeners to the rating buttons -->
+  <!--  <nav class="rating">
         <button type="button" class="rating-button" value="800" onclick="logRating(800)">Easy</button>
         <button type="button" class="rating-button" value="900" style="width: 9%;" onclick="logRating(900)">Medium</button>
         <button type="button" class="rating-button" value="1000" onclick="logRating(1000)">Hard</button>
       
     </nav>
+   -->
     <div class="default-data-container" style="display: flex; justify-content: center; background-color:None; margin-top: 5px;">
         <div class="card-user" style="background-color: #06101dd9; border:2px solid #003681c0; border-radius: 10px; padding: 2px 30px; color: rgb(193, 193, 193); margin: 0 5px; font-weight: 500; font-size: 15px"> <!-- Increased font size by 15px -->
             <% if (locals.topic_name) { %>
@@ -155,7 +213,7 @@ tr:hover {
                     <tr>
                         <th>S.No</th>
                         <th>Problem Name</th>
-                        <th>Tags</th>
+                        <!--<th>Tags</th>-->
                         <th>Rating</th>
                         <th>Status</th>
                     </tr>
@@ -164,7 +222,7 @@ tr:hover {
                 <% problems
                     .filter(problem => problem.rating !== undefined && problem.rating !== null)
                     .sort((a, b) => (a.rating || Infinity) - (b.rating || Infinity))
-                    .slice(0, 400) // Display only the first 30 problems
+                    .slice(0, 100) // Display only the first 30 problems
                     .forEach((problem, index) => { %>
                 <tr>
 <%
@@ -196,15 +254,15 @@ tr:hover {
         <i class="fas fa-check-circle" style="color: #83ff83;"></i><% /* Display checkmark for accepted */ %>
         <% } %>
     </td>
-    <td style="color: <%= tagColor %>;">
+   <!-- <td style="color: <%= tagColor %>;">
         <%= problem.tags.join(', ') %>
-    </td>
+    </td>-->
     <td style="color: <%= ratingColor %>;">
         <%= problem.rating != null ? problem.rating : '-' %>
     </td>
     <td class="Status_bar" style="color: <%= statusColor %>;">
         <% if (locals.uniqueAcceptedProblems.includes(problem.name)) { %>
-        Accepted<% /* Accepted */ %>
+        ACT<% /* Accepted */ %>
         <% } else if (locals.timeLimitExceededProblems.includes(problem.name)) { %>
         TLE<% /* Time Limit Exceeded */ %>
         <% } else if (locals.wrongAnswerProblems.includes(problem.name)) { %>
@@ -303,6 +361,21 @@ tr:hover {
         toggleTheme();
     }
 };
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all topic items
+    const topicItems = document.querySelectorAll('.topic-item');
+
+    // Select the 'tags' input field
+    const tagsInputField = document.getElementById('tags');
+
+    // Add click event listener to each topic item
+    topicItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Set the 'tags' input field value to the text content of the clicked topic item
+            tagsInputField.value = item.textContent;
+        });
+    });
+});
 
 
 </script>

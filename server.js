@@ -67,7 +67,7 @@ app.get('/', async (req, res) => {
         }
 
         // Fetch accepted submissions for the user
-        handle = req.query.handle || '';
+        handle = req.query.handle || 'Null';
         const userSubmissionUrl = `https://codeforces.com/api/user.status?handle=${handle}&from=1&count=100000`;
         const userSubmissionsResponse = await axios.get(userSubmissionUrl);
 
@@ -115,7 +115,7 @@ app.get('/', async (req, res) => {
         totalSolvedProblems = uniqueAcceptedProblems.length;
 
         // Fetch problems based on tags and rating
-        const tags = req.query.tags || '';
+        const tags = req.query.tags || 'implementation';
         const rating = req.query.rating || '';
         const apiUrl = `https://codeforces.com/api/problemset.problems?tags=${tags}&rating=${rating}`;
         const response = await axios.get(apiUrl);
